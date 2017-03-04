@@ -1,119 +1,289 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="Tableizer"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
-
-    <script type="text/javascript" src="js/lib/beautify-html.js"></script>
-    <title>Excel to Table</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="template/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="template/starter-template.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="template/ie10-viewport-bug-workaround.js"></script>
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Excel to Table</a>
-        </div>
-        <div class="collapse navbar-collapse">
-          <!--<ul class="nav navbar-nav">-->
-            <!--<li class="active"><a href="#">Home</a></li>-->
-          <!--</ul>-->
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-
-    <div class="container" ng-controller="TextAreaController">
-
-      <div class="starter-template">
-        <h1>Paste table from excel here</h1>
-      </div>
-      
-      <div class="row">
-        <div class="col-md-2"></div>
-        <textarea ng-model="textarea.text" class="col-md-8" rows="10"></textarea>
-        
-        <div class="col-md-2">
-          <h3> Table Options</h3>
-          
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" ng-model="options.headers"> Enable Table header
-            </label>
-          </div> 
-          
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" ng-model="options.striped"> Enable striped rows
-            </label>
-          </div> 
-        
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" ng-model="options.borders"> Enable borders
-            </label>
-          </div> 
-
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" ng-model="options.enableColors"> Enable colors
-            </label>
-          </div> 
-
-        </div>
-      </div>
-
-      <!-- Table viewer -->
-      <div class="starter-template">
-        <h1>Here's your table!</h1>
-        <div id="table-container" class="col-md-8 col-md-offset-2"></div>
-      </div>
-
-      <!-- Table html viewer -->
-      <div class="starter-template">
-        <h1 class="col-md-12">Copy your table HTML source from here</h1>
-      </div>
-      <div class="row">
-        <textarea id="source" class="col-md-8 col-md-offset-2" rows="15" > </textarea>
-        <div class="col-md-2 hidden"></div>
-      </div>
-      
-    </div><!-- /.container -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 
-    <!-- Bootstrap and angular core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script>
-    <script src="js/textAreaController.js"></script>
-    <script src="template/jquery.js"></script>
-    <script src="template/bootstrap.js"></script>
 
-    <footer class="starter-template">
-        Mail Me: <a href="mailto:vikramsinha@europe.com">Vikram Sinha</a>
-    </footer>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="<$BlogLanguageDirection$>">
+
+<head>
+
+<style class="cp-pen-styles">@import url(http://fonts.googleapis.com/css?family=Questrial);
+@import url(http://fonts.googleapis.com/css?family=Press+Start+2P);
+
+/** CSS Master Reset **/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+        display: block;
+}
+html {
+    background-image: url(https://4.bp.blogspot.com/-w1c66RU0DFw/WLqEruvfRGI/AAAAAAAABtE/tb0dN4vfs84ACC-LIjADJ2ZpdKIqm8mHQCLcB/s1600/comming-soon.jpg);
+    background-color: #5A4855;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+	min-height: 100%;
+    position: relative;
+}
+body {
+    background: #5A4855;
+    line-height: 1;
+
+}
+ol, ul {
+    list-style: none;
+}
+
+/** Generic Classes **/
+h2 {
+    background: #CCC;
+    color: #5A4855;
+    font-size: 22px;
+    font-family: 'Press Start 2P', cursive;
+    padding: 5%;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 5;
+}
+
+@media only screen and (max-width: 480px) {
+
+    html {
+        background-size: 100%;
+    }
+
+    .pixel-1 {
+        left: 0 !important;
+    }
+    .pixel-1:after {
+        left: 30px !important;
+    }
+    .pixel-1:before {
+        left: 100px !important;
+    }
+    .pixel-2 {
+        right: 0 !important;
+    }
+    .pixel-2:after {
+        right: 30px !important;
+    }
+    .pixel-2:before {
+        right: 100px !important;
+    }
+}
+
+
+/** CSS Animations **/
+
+.pixel-1 {
+    width: 19px;
+    height: 19px;
+    background: #272526;
+    position: absolute;
+    z-index: 1;
+    bottom: 101%;
+    left: 34%;
+    /* Chrome, Safari, Opera */
+    -webkit-animation-name: Moving;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: normal;
+    -webkit-animation-play-state: running;
+    -webkit-animation-fill-mode: forwards;
+    /* Standard syntax */
+    animation-name: Moving;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+}
+.pixel-1:after {
+    content: '';
+    width: 19px;
+    height: 19px;
+    background: #272526;
+    position: absolute;
+    z-index: 2;
+    bottom: 101%;
+    left: 105px;
+    /* Chrome, Safari, Opera */
+    -webkit-animation-name: Moving;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 3s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: normal;
+    -webkit-animation-play-state: running;
+    -webkit-animation-fill-mode: forwards;
+    /* Standard syntax */
+    animation-name: Moving;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-fill-mode: forwards;   
+} 
+.pixel-1:before {
+    content: '';
+    width: 19px;
+    height: 19px;
+    background: #272526;
+    position: absolute;
+    z-index: 2;
+    bottom: 101%;
+    left: 40px;
+    /* Chrome, Safari, Opera */
+    -webkit-animation-name: Moving;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 3.5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: normal;
+    -webkit-animation-play-state: running;
+    -webkit-animation-fill-mode: forwards;
+    /* Standard syntax */
+    animation-name: Moving;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 3.5s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-fill-mode: forwards;   
+} 
+
+.pixel-2 {
+    width: 19px;
+    height: 19px;
+    background: #272526;
+    position: absolute;
+    z-index: 1;
+    bottom: 101%;
+    right: 33%;
+    /* Chrome, Safari, Opera */
+    -webkit-animation-name: Moving;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: normal;
+    -webkit-animation-play-state: running;
+    -webkit-animation-fill-mode: forwards;
+    /* Standard syntax */
+    animation-name: Moving;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+}
+.pixel-2:after {
+    content: '';
+    width: 19px;
+    height: 19px;
+    background: #272526;
+    position: absolute;
+    z-index: 2;
+    bottom: 101%;
+    right: 120px;
+    /* Chrome, Safari, Opera */
+    -webkit-animation-name: Moving;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: normal;
+    -webkit-animation-play-state: running;
+    -webkit-animation-fill-mode: forwards;
+    /* Standard syntax */
+    animation-name: Moving;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-fill-mode: forwards;   
+} 
+.pixel-2:before {
+    content: '';
+    width: 19px;
+    height: 19px;
+    background: #272526;
+    position: absolute;
+    z-index: 2;
+    bottom: 101%;
+    right: 50px;
+    /* Chrome, Safari, Opera */
+    -webkit-animation-name: Moving;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 2.5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: normal;
+    -webkit-animation-play-state: running;
+    -webkit-animation-fill-mode: forwards;
+    /* Standard syntax */
+    animation-name: Moving;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 2.5s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-fill-mode: forwards;   
+} 
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes Moving {
+    0%   {bottom:100%;}
+    25%  {bottom:75%;}
+    50%  {bottom:50%;}
+    75%  {bottom:25%;}
+    100% {bottom:0;}
+}
+
+/* Standard syntax */
+@keyframes Moving {
+    0%   {bottom:100%;}
+    25%  {bottom:75%;}
+    50%  {bottom:50%;}
+    75%  {bottom:25%;}
+    100% {bottom:0;}
+}</style></head><body>
+
+	<h2>I am Vikram and can see me collecting a;ll the knowledge I can.</h2>
+	<div class="pixel-1"></div>
+	<div class="pixel-2"></div>
+
+
 </body></html>
