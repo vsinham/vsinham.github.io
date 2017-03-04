@@ -72,19 +72,6 @@
               <input type="checkbox" ng-model="options.striped"> Enable striped rows
             </label>
           </div> 
-        
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" ng-model="options.borders"> Enable borders
-            </label>
-          </div> 
-
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" ng-model="options.enableColors"> Enable colors
-            </label>
-          </div> 
-
         </div>
       </div>
 
@@ -105,7 +92,14 @@
       
     </div><!-- /.container -->
 
-
+		<div align="center">
+		<p> <b> If you enabled striped rows, please add the below mentioned CCSS in your style tag.</b>
+		<br/> <br/> 
+		.table-striped>tbody>tr:nth-child(odd)>td,<br/>
+		.table-striped>tbody>tr:nth-child(odd)>th {<br/>
+		background-color: #f9f9f9
+ }</p><br/>
+		</div>
     <!-- Bootstrap and angular core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
