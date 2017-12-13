@@ -63,13 +63,11 @@ pre {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-flow: row wrap;
-  justify-content: center;
 }
 
 .flex-item-services {
   /*background: #f1f1f1;*/
   padding: 0px;
-  width: 340px;
   height: 100px;
   margin: 10px 16px;
   color: white;
