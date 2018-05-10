@@ -1,139 +1,108 @@
 <style>
-html,
 body {
-  background: rgb(22, 22, 22);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
- 	font-family: monospace;
-	 font-size: 33px;
-	 font-style: normal;
-	 font-variant: normal;
-	 font-weight: 400;
-	 line-height: 33px;
-	 letter-spacing: 1.5px;
-   cursor: context-menu;
-   -webkit-user-select: none;
-	 -moz-user-select: none;
-   -ms-user-select: none;
-   user-select: none;
+		background-color: #000;
 }
-
+.bg-img {
+		background: url(https://www.geoip-db.com/error-pages/images/404.gif) no-repeat center center fixed;
+		background-size: cover;
+		background-color: #000;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		opacity: .5;
+		filter: alpha(opacity=50);
+}
+.content {
+		font-family: Avenir,Helvetica,sans-serif;
+		color: #fff;
+		background-color: none;
+		z-index: 2;
+		position: absolute;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		transform: translateY(-50%);
+}
 a {
-  text-decoration: none;
+		color: #666;
 }
-
-.wrap {
-  top: 45%;
-  left: 45%;
-  width: 400px;
-  height: 200px;
-  margin-left: -200px;
-  margin-top: -100px;
-  position: absolute;
+h1 {
+		font-size: 200px;
+		margin-bottom: 0;
+		margin-top: 0;  
 }
-
-.highLight {
-    display:inline-block;
+h1 .small {
+		font-size: 20px;
 }
-
-.highLight div {
-    display:inline-block;
-    color: white;
-    overflow:hidden;
-    white-space: nowrap;
-    border-right: 1px solid white;
-    width: 0;
-    opacity: 0;
+h2 {
+		margin-top: 0;
+		font-size: 24px;	 
 }
-
-@-webkit-keyframes typing {
-    from { width: 0; }
-    to { width:100%; }
+.search {
+		position: relative;
 }
-
-@-moz-keyframes typing {
-    from { width: 0; }
-    to { width:100%; }
+.search input {
+		border: 1px solid #aaa;
+		min-width: 100px;
+		height: 52px;
+		padding: 11px 30px 12px 30px;	
+		border-radius: 40px;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		-webkit-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
+		background: transparent;
 }
-
-@-webkit-keyframes blink {
-    from, to { border-color: transparent }
-    50% { border-color: white }
+.search input:focus {
+		min-width: 350px;
 }
-
-@-moz-keyframes blink {
-    from, to { border-color: transparent }
-    50% { border-color: white }
+.search button {
+		width: 40px;
+		height: 52px;
+		position: absolute;
+		right: 5px;
+		border: none;
+		background: transparent;
 }
-
-.variable {
-  color: #616161;
+.search button i {
+		color: #999;
+		font-size: 22px;
+		line-height: 20px;
 }
-.variable2 {
-  color: #607d8b;
+.search :focus {
+		outline-color: transparent;
+		outline-style: none;
 }
-.keyword {
-  color: #6d4c41;
+.btn {
+		display: inline-block;
+		border: 1px solid #aaa;
+		border-radius: 40px;
+		padding: 15px 30px;
+		margin-right: 15px;
+	  color: #999;
 }
-.constant {
-  color: #9e9e9e;
+.btn:hover {
+		color: #e2e2e2;
+		background: rgba(255, 255, 255, 0.1);
 }
-.docComment {
- 	color: #0d47a1;
-}
-.operator {
-  color: #ff8a65;
-}
-.comment {
-  color: #33691e;
-}
-.string {
-  color: #f39c12;
+p {
+		margin: 0px 30px 30px 30px;;
 }
 </style>
-<script>
-var delay = 0;
-var lines = $(".highLight div").length;
-var line = 0;
-$(".highLight div").each(function(){
-   var count = $(this).text().length;
-   var duration = count / 12;
-   $(this).css({
-    "-webkit-animation" : "typing " + duration + "s steps(" + count + ", end) forwards, blink 1s step-end 1s infinite",
-    "-moz-animation" : "typing " + duration + "s steps(" + count + ", end) forwards, blink 1s step-end 1s infinite",
-    "animation-delay" : delay + "s"});
-   var that = $(this);
-   setTimeout(function(){
-       that.css('opacity', '1');
-   },delay*1000);
-   delay += duration;
-   line += 1;
-   if(line != lines)
-   {
-       setTimeout(function(){
-           that.css('border-right', '0');
-       },delay*1000);
-   }
-});
-</script>
-<div class="wrap">
-  <div class="404">
-    <pre><div class="highLight"><div data-line="1"><span class="keyword">function</span> setError(<span class="variable">$errorcode</span>) {</div></div>
-<div class="highLight"><div data-line="2">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="variable">$this</span><span class="operator">-></span><span class="variable2">errorcode</span> = <span class="variable">$errorcode;</span></div></div>
-<div class="highLight"><div data-line="2">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="variable">$this</span><span class="operator">-></span><span class="variable2">error</span> = <span class="variable">$this</span><span class="operator">-></span><span class="variable2">errors[<span class="string">$errorcode</span>];</span></div></div>
-<div class="highLight"><div data-line="2">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}</div></div>
-<div class="highLight"><div data-line="1">}</div></div>
-<div class="highLight"><div data-line="1"><span class="keyword">function</span> getError(<span class="variable">$errormessage</span> = <span class="string">''</span>) {</div></div>
-<div class="highLight"><div data-line="2">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="variable">$error</span> = <span class="variable">$this</span><span class="operator">-></span><span class="variable2">errorcode</span>.<span class="variable">$this</span><span class="operator">-></span><span class="variable2">errormessage;</span></div></div>
-<div class="highLight"><div data-line="2">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="keyword">return</span> <span class="variable">$error;</span></div></div>
-<div class="highLight"><div data-line="2">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span class="keyword">exit;</span></div></div>
-<div class="highLight"><div data-line="1">}</div></div><br />
-<div class="highLight"><div data-line="1"><span class="comment">/**</span></div></div>
-<div class="highLight"><div data-line="1"><span class="comment">&nbsp;* <span class="docComment">@link</span> <a href="http://softables.tk/" target="_blank">Home</a></span></div></div>
-<div class="highLight"><div data-line="1"><span class="comment">&nbsp;* <span class="docComment">@todo</span> ..write a 404 page that actually makes sense.</span></div></div>
-<div class="highLight"><div data-line="1"><span class="comment">&nbsp;*/</span></div></div>
-<div class="highLight"><div data-line="2"><span class="variable">$err</span><span class="operator">-></span><span class="variable2">setError</span>(<span class="constant">404</span>);</div></div>
-<div class="highLight"><div data-line="2"><span class="variable">$err</span><span class="operator">-></span><span class="variable2">getError</span>(<span class="string">"Page Not Found"</span>);</div></div>
-</pre>
+<div class="container">
+  <div class="row content">
+    <div class="col-lg-12"></div>
+    <div class="col-lg-12">
+      <h1>404<span class="small">Page not found</span></h1>
+      <h2>Oops, the page you're looking for does not exist.</h2>
+      <p>Try to find more of these kind of pages on <a href="https://www.geoip-db.com/error-pages">https://www.geoip-db.com/error-pages</a></p>
+        
+		  <a class="btn" href="/">Go home</a>
+      <span class="search">
+        <input placeholder="Search"></input>
+        <button><i class="fa fa-search"></i></button>
+      </span>    
+    </div>
   </div>
 </div>
+<div class="bg-img"></div>
